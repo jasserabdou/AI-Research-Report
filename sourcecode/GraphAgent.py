@@ -5,27 +5,20 @@ from typing import Any, Dict, List
 
 class GraphAgent:
     """
-    Represents an agent that performs random walk or follows the shortest path on a graph.
-
-    Args:
-        start (Any): The starting node of the agent.
-        target (Any): The target node that the agent wants to reach.
-        graph (nx.Graph): The graph on which the agent performs actions.
-        shortest_paths (Dict[Any, Dict[Any, List[Any]]]): A dictionary containing the shortest paths between nodes.
+    A class representing an agent that performs actions on a graph.
 
     Attributes:
         start (Any): The starting node of the agent.
         target (Any): The target node that the agent wants to reach.
         graph (nx.Graph): The graph on which the agent performs actions.
         shortest_paths (Dict[Any, Dict[Any, List[Any]]]): A dictionary containing the shortest paths between nodes.
-        current_node (Any): The current node where the agent is located.
-        memory (List[Any]): A list to store the visited nodes during the agent's actions.
 
     Methods:
-        random_walk: Performs a random walk on the graph until reaching the target node.
-        shortest_path: Follows the shortest path on the graph to reach the target node.
+        random_walk: Performs a random walk on the graph until the target node is reached.
+        shortest_path: Moves along the shortest path from the start node to the target node.
         sense_and_store: Stores the current node in the agent's memory.
-        get_episode_memory: Returns the list of visited nodes stored in the agent's memory.
+        get_episode_memory: Returns the memory of the agent, which contains the visited nodes.
+        calculate_shortest_paths: Calculates the shortest paths between all pairs of nodes in the graph.
     """
 
     def __init__(
@@ -60,5 +53,6 @@ class GraphAgent:
     def get_episode_memory(self) -> List[Any]:
         return self.memory
 
-
-shortest_paths = dict(nx.all_pairs_shortest_path())
+    def calculate_shortest_paths(self):
+        shortest_paths = dict(nx.all_pairs_shortest_path(self.graph))
+        return shortest_paths
