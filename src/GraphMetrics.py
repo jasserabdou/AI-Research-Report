@@ -44,10 +44,3 @@ class GraphMetrics:
         dict: A dictionary where the keys are the nodes and the values are their betweenness centrality scores.
         """
         return nx.betweenness_centrality(self.graph)
-
-
-# The design uses the NetworkX library in Python,
-# which provides built-in functions for calculating centrality measures.
-# For Betweenness Centrality, the `nx.betweenness_centrality` function is used,
-# which internally uses Dijkstra's algorithm or Bellman-Ford's algorithm to compute shortest paths
-# (geodesics) between all pairs of nodes.

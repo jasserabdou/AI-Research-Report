@@ -62,10 +62,3 @@ class Graph:
             if node.value == value:
                 return node
         return None
-
-
-# In designing these classes, I opted for a simple and intuitive object-oriented approach.
-# The `Node` and `Edge`classes represent the basic elements of a graph, while the `Graph` class
-# encapsulates these elements and provides methods for manipulating them.
-# This design allows for easy expansion and modification,
-# aligning with principles of good software design.
